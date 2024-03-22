@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <div id="app">
+        <h3>데이터 표시하기</h3>
+        <div>{{message}}</div>
+        <br/>
+        <h3>값 표시하기</h3>
+        <div>{{"Hello world"}}</div>
+        <div>{{ 1 + 3 }}</div>
+        <div>{{Math.round(3 + Math.random() * 5) }}</div>
+        <div>{{ (() => "Function result")() }}</div>
+        <div>{{ true ? "true expression" : "false expression" }}</div>
+        <br/>
+        <h3>메서드 결과 표시</h3>
+        <div>{{ getMessage() }}</div>
+        <div>{{ getNameGreeting() }}</div>
+        <H3>HTML 속성 제어하기</H3>
+        <a v-bind:href="linkValue">Google</a>
+        <br/>
+        <h3>v-if 디렉티브</h3>
+        <div v-if="probability >= 0.8">High probability</div>
+        <div v-if="probability < 0.8 && probability >= 0.3">Medium probability</div>
+        <div v-if="probability < 0.3">Low probability</div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

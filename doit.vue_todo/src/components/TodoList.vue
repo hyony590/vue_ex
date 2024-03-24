@@ -15,17 +15,9 @@
 <script>
 export default {
     props : ['propsdata'],
-    // data() {
-    //     return {
-    //         todoItems : []
-    //     }
-    // },
-    
     methods: {
         removeTodo(todoItem, index) {
-            console.log(todoItem, index);
-            localStorage.removeItem(todoItem);
-            this.todoItems.splice(index, 1);
+            this.$emit('removeTodo', todoItem, index);
         }
     }
 }

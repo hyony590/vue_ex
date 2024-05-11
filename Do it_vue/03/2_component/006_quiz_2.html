@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>전역 컴포넌트 태그와 지역 컴포넌트 태그를 화면에 표시하기</title>
+</head>
+<body>
+    <caption>
+        <h3> Q. 전역 컴포넌트 태그와 지역 컴포넌트 태그를 화면에 표시하기</h3>
+        <div>앞에서 등록한 전역 컴포넌트 todo-footer를 화면에 표시하기 위해 태그를 추가합니다.</div>
+        <div>앞에서 등록한 전역 컴포넌트 todo-list를 화면에 표시하기 위해 태그를 추가합니다.</div>
+        <hr>
+    </caption>
+
+    <div id="app">
+        <header>
+            <h3>{{ message }}</h3>
+        </header>
+        <!--실습 #3 : 전역 컴포넌트 등록을 위한 'todo-footer' 태그 추가-->
+        <todo-footer></todo-footer>
+
+        <!--실습 #4 : 전역 컴포넌트 등록을 위한 'todo-list' 태그 추가-->
+        <todo-list></todo-list>
+    </div>
+
+    <!--script단-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        Vue.component('todo-footer',{
+            template : '<p>This is another global child componenet</p>'
+        });
+
+        var app = new Vue({
+            el : '#app',
+            data : {
+                message : 'This is a prenet componenet'
+            },
+        });
+
+        var cmp = {
+            template : '<p>This is another local child componenet</p>'
+        };
+
+        new Vue({
+            el : '#app',
+            components:{
+                'todo-list' : cmp
+            }
+        });
+    </script>
+</body>
+</html>

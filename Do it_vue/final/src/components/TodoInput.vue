@@ -4,7 +4,6 @@
         <span class="addContainer" v-on:click="addTodo">
             <i class="addBtn fas fa-plus" aria-hidden="true"></i>
         </span>
-        <!-- <button v-on:click="addTodo">추가</button> -->
     </div>
 </template>
 
@@ -19,7 +18,7 @@ export default {
         addTodo() {
             if(this.newTodoItem !== ""){
                 var value = this.newTodoItem && this.newTodoItem.trim();
-                localStorage.setItem(value, value);
+                this.$emit('addTodo', value);
                 this.clearInput();
             }
         },
